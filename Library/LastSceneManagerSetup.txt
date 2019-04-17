@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/lihongsheng/scene/MainScene.unity
+  isLoaded: 1
+  isActive: 1

@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Furion_Main_try", "Assembly-CSharp.csproj", "{A866E74C-A0E7-B5EA-D421-9C317482B986}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Furion_Main_try", "Assembly-CSharp-firstpass.csproj", "{EDA549A3-12C1-8B52-BB2D-41A0F7C3A9B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Furion_Main_try", "Assembly-CSharp-Editor.csproj", "{18316F5C-B819-ACCC-2707-B84B83B150F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A866E74C-A0E7-B5EA-D421-9C317482B986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A866E74C-A0E7-B5EA-D421-9C317482B986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A866E74C-A0E7-B5EA-D421-9C317482B986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A866E74C-A0E7-B5EA-D421-9C317482B986}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDA549A3-12C1-8B52-BB2D-41A0F7C3A9B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDA549A3-12C1-8B52-BB2D-41A0F7C3A9B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDA549A3-12C1-8B52-BB2D-41A0F7C3A9B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDA549A3-12C1-8B52-BB2D-41A0F7C3A9B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18316F5C-B819-ACCC-2707-B84B83B150F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18316F5C-B819-ACCC-2707-B84B83B150F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18316F5C-B819-ACCC-2707-B84B83B150F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18316F5C-B819-ACCC-2707-B84B83B150F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

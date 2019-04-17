@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Texas_Game_GStreamer", "Assembly-CSharp.csproj", "{4AD3B24E-05B0-82CE-D0E2-BE73580E57DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Texas_Game_GStreamer", "Assembly-CSharp-firstpass.csproj", "{22416302-D483-D38E-2829-D0CEA388D677}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Texas_Game_GStreamer", "Assembly-CSharp-Editor.csproj", "{EA93AFD2-D8F0-040C-40DD-C325C8F03868}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4AD3B24E-05B0-82CE-D0E2-BE73580E57DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AD3B24E-05B0-82CE-D0E2-BE73580E57DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AD3B24E-05B0-82CE-D0E2-BE73580E57DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AD3B24E-05B0-82CE-D0E2-BE73580E57DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22416302-D483-D38E-2829-D0CEA388D677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22416302-D483-D38E-2829-D0CEA388D677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22416302-D483-D38E-2829-D0CEA388D677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22416302-D483-D38E-2829-D0CEA388D677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA93AFD2-D8F0-040C-40DD-C325C8F03868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA93AFD2-D8F0-040C-40DD-C325C8F03868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA93AFD2-D8F0-040C-40DD-C325C8F03868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA93AFD2-D8F0-040C-40DD-C325C8F03868}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

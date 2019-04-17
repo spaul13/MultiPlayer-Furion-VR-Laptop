@@ -1,0 +1,285 @@
+Set D3D11 graphic device
+GST ref (0 -> 1)
+Setting debug level to 2,dashdemux:5
+GStreamer 1.10.2 initialized
+Entering main loop
+[SphereMovie18014] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/0.mp4
+[SphereMovie18014] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[SphereMovie18014] Sink pad probe id is 1
+[SphereMovie18014] Video branch does not support cropping and blitting in one operation
+[SphereMovie18014] Setting pipeline to PLAYING
+0:00:00.100948400 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[SphereMovie18014] Setting properties to source filesrc
+0:00:00.101417381 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[SphereMovie18014] State change completed
+0:00:00.120899147 00000000489620C0 WRN qtdemux qtdemux_types.c:223:qtdemux_type_get unknown QuickTime node type iods
+0:00:00.121116006 00000000489620C0 WRN qtdemux qtdemux.c:2889:qtdemux_parse_trex:<qtdemux0> failed to find fragment defaults for stream 1
+0:00:00.121239422 00000000489620C0 WRN basesrc gstbasesrc.c:2400:gst_base_src_update_length:<source> processing at or past EOS
+[SphereMovie18014] Setting pipeline to NULL
+[SphereMovie18014] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/1.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:03.004561813 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:03.005010695 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+[(NULL)] Setting pipeline to NULL
+0:00:03.011673403 00000000489623C0 WRN qtdemux qtdemux_types.c:223:qtdemux_type_get unknown QuickTime node type iods
+0:00:03.011831376 00000000489623C0 WRN qtdemux qtdemux.c:2889:qtdemux_parse_trex:<qtdemux1> failed to find fragment defaults for stream 1
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/2.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:03.023424382 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:03.023847170 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+[(NULL)] Setting pipeline to NULL
+0:00:03.029813106 0000000041EE0CC0 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/3.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:03.036565026 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:03.036933864 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+0:00:03.041580657 00000000489623C0 WRN qtdemux qtdemux_types.c:223:qtdemux_type_get unknown QuickTime node type iods
+0:00:03.041742156 00000000489623C0 WRN qtdemux qtdemux.c:2889:qtdemux_parse_trex:<qtdemux3> failed to find fragment defaults for stream 1
+0:00:03.041825374 00000000489623C0 WRN basesrc gstbasesrc.c:2400:gst_base_src_update_length:<source> processing at or past EOS
+[(NULL)] Setting pipeline to NULL
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/4.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:03.053520639 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:03.053876783 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+0:00:03.058563775 0000000041EE0CC0 WRN qtdemux qtdemux_types.c:223:qtdemux_type_get unknown QuickTime node type iods
+0:00:03.058694949 0000000041EE0CC0 WRN qtdemux qtdemux.c:2889:qtdemux_parse_trex:<qtdemux4> failed to find fragment defaults for stream 1
+0:00:03.058768998 0000000041EE0CC0 WRN basesrc gstbasesrc.c:2400:gst_base_src_update_length:<source> processing at or past EOS
+[(NULL)] Setting pipeline to NULL
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/5.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:03.070028076 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:03.070443106 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+0:00:03.076087455 0000000048962500 WRN qtdemux qtdemux_types.c:223:qtdemux_type_get unknown QuickTime node type iods
+0:00:03.076348744 0000000048962500 WRN qtdemux qtdemux.c:2889:qtdemux_parse_trex:<qtdemux5> failed to find fragment defaults for stream 1
+0:00:03.076452061 0000000048962500 WRN basesrc gstbasesrc.c:2400:gst_base_src_update_length:<source> processing at or past EOS
+[(NULL)] Setting pipeline to NULL
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/6.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:03.106196759 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:03.106547261 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+[(NULL)] Setting pipeline to NULL
+0:00:03.111936315 0000000041EE0CC0 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/7.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:03.119407574 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:03.119753492 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+0:00:03.123846324 0000000048962500 WRN qtdemux qtdemux_types.c:223:qtdemux_type_get unknown QuickTime node type iods
+0:00:03.124001828 0000000048962500 WRN qtdemux qtdemux.c:2889:qtdemux_parse_trex:<qtdemux7> failed to find fragment defaults for stream 1
+0:00:03.124136881 0000000048962500 WRN basesrc gstbasesrc.c:2400:gst_base_src_update_length:<source> processing at or past EOS
+[(NULL)] Setting pipeline to NULL
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/8.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:03.148845495 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:03.149231259 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+0:00:03.154219033 0000000041EE0CC0 WRN qtdemux qtdemux_types.c:223:qtdemux_type_get unknown QuickTime node type iods
+0:00:03.154422494 0000000041EE0CC0 WRN qtdemux qtdemux.c:2889:qtdemux_parse_trex:<qtdemux8> failed to find fragment defaults for stream 1
+0:00:03.154575177 0000000041EE0CC0 WRN basesrc gstbasesrc.c:2400:gst_base_src_update_length:<source> processing at or past EOS
+[(NULL)] Setting pipeline to NULL
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/9.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:09.378567696 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:09.378879057 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+0:00:09.384025510 00000000489623C0 WRN qtdemux qtdemux_types.c:223:qtdemux_type_get unknown QuickTime node type iods
+0:00:09.384160915 00000000489623C0 WRN qtdemux qtdemux.c:2889:qtdemux_parse_trex:<qtdemux9> failed to find fragment defaults for stream 1
+0:00:09.384292441 00000000489623C0 WRN basesrc gstbasesrc.c:2400:gst_base_src_update_length:<source> processing at or past EOS
+[(NULL)] Setting pipeline to NULL
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/10.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:09.392964364 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:09.393338844 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+0:00:09.399807259 00000000489620C0 WRN qtdemux qtdemux_types.c:223:qtdemux_type_get unknown QuickTime node type iods
+0:00:09.399931028 00000000489620C0 WRN qtdemux qtdemux.c:2889:qtdemux_parse_trex:<qtdemux10> failed to find fragment defaults for stream 1
+0:00:09.400006136 00000000489620C0 WRN basesrc gstbasesrc.c:2400:gst_base_src_update_length:<source> processing at or past EOS
+[(NULL)] Setting pipeline to NULL
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/11.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:09.410313851 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:09.410707372 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+0:00:09.416653561 0000000048962500 WRN qtdemux qtdemux_types.c:223:qtdemux_type_get unknown QuickTime node type iods
+0:00:09.416886289 0000000048962500 WRN qtdemux qtdemux.c:2889:qtdemux_parse_trex:<qtdemux11> failed to find fragment defaults for stream 1
+0:00:09.417012173 0000000048962500 WRN basesrc gstbasesrc.c:2400:gst_base_src_update_length:<source> processing at or past EOS
+[(NULL)] Setting pipeline to NULL
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/12.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:09.455755317 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:09.456089951 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+[(NULL)] Setting pipeline to NULL
+0:00:09.462211744 00000000489620C0 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/13.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:09.486527543 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:09.487056116 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+0:00:09.493414868 0000000048962500 WRN qtdemux qtdemux_types.c:223:qtdemux_type_get unknown QuickTime node type iods
+0:00:09.493614450 0000000048962500 WRN qtdemux qtdemux.c:2889:qtdemux_parse_trex:<qtdemux13> failed to find fragment defaults for stream 1
+0:00:09.493743860 0000000048962500 WRN basesrc gstbasesrc.c:2400:gst_base_src_update_length:<source> processing at or past EOS
+[(NULL)] Setting pipeline to NULL
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/14.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:13.059340239 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:13.060029606 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+0:00:13.066767774 0000000041EE0CC0 WRN qtdemux qtdemux_types.c:223:qtdemux_type_get unknown QuickTime node type iods
+0:00:13.066988513 0000000041EE0CC0 WRN qtdemux qtdemux.c:2889:qtdemux_parse_trex:<qtdemux14> failed to find fragment defaults for stream 1
+0:00:13.067151774 0000000041EE0CC0 WRN basesrc gstbasesrc.c:2400:gst_base_src_update_length:<source> processing at or past EOS
+[(NULL)] Setting pipeline to NULL
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/15.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:13.098125344 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:13.098639813 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+[(NULL)] Setting pipeline to NULL
+0:00:13.105193915 0000000048962500 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/16.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:13.134350094 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:13.134715406 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+[(NULL)] Setting pipeline to NULL
+0:00:13.140574851 00000000489620C0 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/17.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:13.168469012 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:13.169064583 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+0:00:13.175346112 00000000489623C0 WRN qtdemux qtdemux_types.c:223:qtdemux_type_get unknown QuickTime node type iods
+0:00:13.175610928 00000000489623C0 WRN qtdemux qtdemux.c:2889:qtdemux_parse_trex:<qtdemux17> failed to find fragment defaults for stream 1
+0:00:13.175795699 00000000489623C0 WRN basesrc gstbasesrc.c:2400:gst_base_src_update_length:<source> processing at or past EOS
+[(NULL)] Setting pipeline to NULL
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/18.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:16.067428579 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:16.067847136 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+[(NULL)] Setting pipeline to NULL
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/19.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:16.104554972 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:16.106630831 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+[(NULL)] Setting pipeline to NULL
+0:00:16.112512139 0000000048962500 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+[(NULL)] Using pipeline: playbin uri=file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/20.mp4
+[(NULL)] Using video sink: videoconvert ! video/x-raw,format=RGBA ! videocrop name=crop ! fakesink sync=1 qos=1 name=sink
+[(NULL)] Sink pad probe id is 1
+[(NULL)] Video branch does not support cropping and blitting in one operation
+[(NULL)] Setting pipeline to PLAYING
+0:00:16.158704328 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] Setting properties to source filesrc
+0:00:16.159062235 00000000488CAE10 WRN basesrc gstbasesrc.c:3491:gst_base_src_start_complete:<source> pad not activated yet
+[(NULL)] State change completed
+0:00:16.165532766 00000000489620C0 WRN qtdemux qtdemux_types.c:223:qtdemux_type_get unknown QuickTime node type iods
+0:00:16.165748921 00000000489620C0 WRN qtdemux qtdemux.c:2889:qtdemux_parse_trex:<qtdemux20> failed to find fragment defaults for stream 1
+0:00:16.165892084 00000000489620C0 WRN basesrc gstbasesrc.c:2400:gst_base_src_update_length:<source> processing at or past EOS
+GST unref (1 -> 0)
+Quitting main loop
+Destroying graphic device
+Destroying graphic device
