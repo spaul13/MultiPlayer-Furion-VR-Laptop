@@ -22,6 +22,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 using System.Runtime.InteropServices;
+using System.Collections;
 
 
 [Serializable]
@@ -140,7 +141,7 @@ public class GstUnityBridgeTexture : MonoBehaviour
     public Material m_TargetMaterial;
 
     [Tooltip("From 0 (mute) to 1 (max volume)")]
-    [Range(0,1)]
+    [Range(0, 1)]
     public double m_AudioVolume = 1.0F;
 
     [Tooltip("When using Adaptive Streaming (DASH or HLS) this allows setting a limit on the bitrate from 0 (minimum quality) to 1 (maximum quality)")]
@@ -170,10 +171,10 @@ public class GstUnityBridgeTexture : MonoBehaviour
     int count = 0;
     double sum_start = 0.0;
     playerController pc_2;
-    int tex_width = 2048;
-    int tex_height = 1024;
+    //int tex_width = 512;//2048;
+    //int tex_height = 256;//1024;
     bool first_time = true;
-	
+
 
     private static void OnFinish(IntPtr p)
     {
@@ -285,14 +286,14 @@ public class GstUnityBridgeTexture : MonoBehaviour
 
     void Start()
     {
-        Resize(tex_width, tex_height);
+        //Resize(tex_width, tex_height);
         pc_2 = GameObject.Find("playerMove/ALplayer").GetComponent<playerController>();
         InitializeSetupPlay();
-        
+
 
     }
 
-   public void InitializeSetupPlay()
+    public void InitializeSetupPlay()
     {
 
         Initialize();
@@ -391,7 +392,7 @@ public class GstUnityBridgeTexture : MonoBehaviour
 
     public void Stop()
     {
-        if(m_Pipeline != null)
+        if (m_Pipeline != null)
         {
             m_Pipeline.Stop();
         }
@@ -457,8 +458,8 @@ public class GstUnityBridgeTexture : MonoBehaviour
 
     void Update()
     {
-        if (m_Pipeline == null)
-            return;
+        //if (m_Pipeline == null)
+        //    return;
 
         //Debug.Log(" \n Update: 1/fps = " + Time.unscaledDeltaTime * 1000);
 
@@ -481,21 +482,25 @@ public class GstUnityBridgeTexture : MonoBehaviour
     }
 
     void LateUpdate()
+    //public IEnumerator display()
     {
 
         Vector2 sz = Vector2.zero;
         if (m_Pipeline.GrabFrame(ref sz))
         {
-            //if(pc_2.pos_change == 1)
-            //Resize((int)sz.x, (int)sz.y);
-            
+            if (pc_2.pos_change == 1)
+            {
+                Resize((int)sz.x, (int)sz.y);
+                pc_2.pos_change = 0;
+            }
+
             if (m_Texture == null)
             {
                 Debug.LogWarning(string.Format("[{0}] The GUBTexture does not have a texture assigned and will not paint.", name + GetInstanceID()));
             }
             else
             {
-                if ((pc_2.dir_change == 1) || (first_time))
+                //if ((pc_2.dir_change == 1) || (first_time))
                 {
                     m_Pipeline.BlitTexture(m_Texture.GetNativeTexturePtr(), m_Texture.width, m_Texture.height);
                     pc_2.dir_change = 0;
@@ -532,5 +537,6 @@ public class GstUnityBridgeTexture : MonoBehaviour
             }
             */
         }
+        //yield return null;
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -247,6 +247,7 @@ MonoBehaviour:
   fID: 0
   pos_change: 0
   dir_change: 0
+  prefetching_start: 0
 --- !u!4 &28574620
 Transform:
   m_ObjectHideFlags: 0
@@ -526,7 +527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &64459769
 Transform:
   m_ObjectHideFlags: 0
@@ -3304,7 +3305,6 @@ GameObject:
   m_Component:
   - component: {fileID: 429385361}
   - component: {fileID: 551983833}
-  - component: {fileID: 429385365}
   - component: {fileID: 429385364}
   - component: {fileID: 429385363}
   - component: {fileID: 429385362}
@@ -3337,7 +3337,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 429385359}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -768656878, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -3361,15 +3361,7 @@ Behaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 429385359}
-  m_Enabled: 1
---- !u!92 &429385365
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 92880865881402874, guid: f46f46e55b26f448dab58f86b477f660,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 429385359}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1 &431451057
 GameObject:
   m_ObjectHideFlags: 0
@@ -5364,7 +5356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &699315081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5373,7 +5365,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 699315080}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.85}
+  m_LocalPosition: {x: 0, y: 0, z: 2.53}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children: []
   m_Father: {fileID: 1704973770}
@@ -5381,7 +5373,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.049, y: 4.64}
+  m_AnchoredPosition: {x: -0.049, y: 5}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &699315082
@@ -5932,6 +5924,10 @@ Prefab:
     - target: {fileID: 177758, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11414954, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
+      propertyPath: autoUntiltHead
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
@@ -9324,7 +9320,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1251792205}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11e1b15fcd95642448214a3c7de5c4d9, type: 3}
   m_Name: 
@@ -9600,9 +9596,9 @@ MonoBehaviour:
   m_FlipX: 0
   m_FlipY: 1
   m_Loop: 0
-  m_URI: file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/0.mp4
+  m_URI: file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas/server_fetch/0.mp4
   m_VideoIndex: 0
-  m_AudioIndex: 0
+  m_AudioIndex: -1
   m_TargetMaterial: {fileID: 0}
   m_AudioVolume: 1
   m_AdaptiveBitrateLimit: 1
@@ -9663,7 +9659,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -13040,7 +13036,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1704973769}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: -2.87, z: 1.19}
+  m_LocalPosition: {x: -0.01, y: -4, z: 1.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2110839650}
@@ -13458,12 +13454,12 @@ Prefab:
     - target: {fileID: 114509340391454642, guid: d27c8dc24d3844682ab6a21a56f2c051,
         type: 2}
       propertyPath: IsFirstPersonViewInspector
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114509340391454642, guid: d27c8dc24d3844682ab6a21a56f2c051,
         type: 2}
       propertyPath: isPlayerBloodVisible
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114509340391454642, guid: d27c8dc24d3844682ab6a21a56f2c051,
         type: 2}

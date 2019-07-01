@@ -147,9 +147,9 @@ public class GstUnityBridgePipeline
 
     internal void Play()
     {
-        double start_time = Time.realtimeSinceStartup;
+        //double start_time = Time.realtimeSinceStartup;
         gub_pipeline_play(m_Instance);
-        Debug.Log("\n GUB:Time difference between playing = " + (Time.realtimeSinceStartup - start_time));
+        //Debug.Log("\n GUB:Time difference between playing = " + (Time.realtimeSinceStartup - start_time));
     }
 
     internal void Pause()

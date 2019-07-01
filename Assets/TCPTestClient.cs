@@ -21,18 +21,27 @@ public class TCPTestClient : MonoBehaviour
     FileStream fs, fs_1, fs_2, fs_3;
     int START_LEN = 40; //20;(for single packet reception)
     int count;
+    //int START_LEN = 40; //20;(for single packet reception)
+    //int count;
     int fid_rx, filesize, filesize_1, filesize_2, filesize_3, total_size;
     double actual_total_time;
     int offset;
+    double prefetch_start;
+    double start_time1;
+    int first_time = 1;
+    int enter_first = 0;
+    int total_bytes_rx = 0;
+    int inside_this = 0;
+    int check_continuous = 0;
 
 
-    string localPath = "C:/Users/spauldsnl/Documents/decoding_videos/server_fetch/";
+    string localPath = "C:/Users/spauldsnl/Documents/decoding_videos/viking_texas/server_fetch/";
 
     void Start()
     {
 
         Debug.Log("\n Start () ");
-        //ConnectToTcpServer();
+        ConnectToTcpServer();
         //for customized prefetch request
         prefetch_fn = new byte[20];
         cp = GameObject.Find("Callprefetch").GetComponent<CallPrefetch>();
@@ -55,7 +64,7 @@ public class TCPTestClient : MonoBehaviour
         try
         {
             Debug.Log("\n connecttotcpserver () ");
-            socketConnection = new TcpClient("192.168.1.130", 5000);
+            socketConnection = new TcpClient("192.168.1.197", 5008);
             /*
             clientReceiveThread = new Thread (new ThreadStart(ListenForData)); 			
 			clientReceiveThread.IsBackground = true; 			
@@ -68,11 +77,6 @@ public class TCPTestClient : MonoBehaviour
         {
             Debug.Log("On client connect exception " + e);
         }
-    }
-
-    void OnApplicationQuit()
-    {
-        socketConnection.Close();
     }
 
     /// Runs in background clientReceiveThread; Listens for incomming data. 	
@@ -145,8 +149,7 @@ public class TCPTestClient : MonoBehaviour
         }
     }
 
-
-    //customized sendmessage
+    //sendfid without resolution
     public void Sendfid(List<int> fid_list)
     {
         if (socketConnection == null)
@@ -156,10 +159,11 @@ public class TCPTestClient : MonoBehaviour
         }
         try
         {
+            prefetch_start = Time.realtimeSinceStartup;
             byte[] prefetch_fn;
             prefetch_fn = new byte[20];
 
-            //Debug.Log("\n Fids need to be fetched \n");
+            Debug.Log("\n Fids need to be fetched \n");
             for (int i = 0; i < fid_list.Count; i++) Debug.Log(fid_list[i] + "\n");
             // Get a stream object for writing. 
             Debug.Log("\n sendfid() ");
@@ -167,7 +171,7 @@ public class TCPTestClient : MonoBehaviour
             if (stream.CanWrite)
             {
                 int _fid = fid_list[0];
-                //Debug.Log("\n sending three requests \n");
+                Debug.Log("\n sending three requests \n");
                 //for (int i = 9; i >= 0; i--) {
                 for (int i = 6; i >= 0; i--)
                 {
@@ -197,12 +201,14 @@ public class TCPTestClient : MonoBehaviour
                     }
                     prefetch_fn[19] = 0;
                 }
+
                 // Write byte array to socketConnection stream.   
                 //Debug.Log("\n Fids are requested by the client = " + fid + "," + temp1 + "," + temp2);
-                //Debug.Log("\n prefetch_fn= " + prefetch_fn.ToString());
-                //Debug.Log("\n the length of the prefetch fn " + prefetch_fn.Length);
+                Debug.Log("\n prefetch_fn= " + prefetch_fn.ToString());
+                Debug.Log("\n the length of the prefetch fn " + prefetch_fn.Length);
                 stream.Write(prefetch_fn, 0, prefetch_fn.Length);
-                //Debug.Log("Client sent his message - should be received by server");
+
+                Debug.Log("Client sent his message - should be received by server");
             }
         }
         catch (SocketException socketException)
@@ -217,12 +223,14 @@ public class TCPTestClient : MonoBehaviour
         while (true)
         {
             //Debug.Log ("\n listenfordata () ");
-            //socketConnection = new TcpClient("192.168.1.130", 5000);  //"192.168.1.130"//"192.168.1.110"			
+            //socketConnection = new TcpClient("192.168.0.100", 5008);  //"192.168.1.130"//"192.168.1.110"			
 
             try
             {
                 // Get a stream object for reading 	
                 Byte[] bytes = new Byte[409600];
+                //Byte[] bytes = new Byte[38];
+
                 double start_time = 0;
                 //using (NetworkStream stream = socketConnection.GetStream())
                 {
@@ -230,31 +238,35 @@ public class TCPTestClient : MonoBehaviour
                     // Read incomming stream into byte arrary. 
 
                     length = socketConnection.GetStream().Read(bytes, 0, bytes.Length);
-                    //Debug.Log("\n the total amount of bytes received from the network stream = " + length);
+                    Debug.Log("\n the total amount of bytes received from the network stream = " + length);
+                    total_bytes_rx = total_bytes_rx + length;
+                    //Hou
+                    offset = 0;
 
                     //inorder to resolve the fid and filesize
-                    if (length == START_LEN)
+                    if ((first_time == 1))// || (length == START_LEN))
                     {
+                        Byte[] new_bytes = new byte[40];
+                        for (int i = 0; i < START_LEN; i++) new_bytes[i] = bytes[i];
                         fid_rx = 0;
                         filesize_1 = 0;
                         //Debug.Log("\n First resolving the frame ids and getting the filesize \n");
                         for (int i = 2; i < 8; i++)
-                            fid_rx = fid_rx * 10 + (bytes[i] - '0');
-
+                            fid_rx = fid_rx * 10 + (new_bytes[i] - '0');
+                        //Debug.Log("\n fid_rx = " + fid_rx);
                         for (int i = 8; i < 14; i++)
-                            filesize_1 = filesize_1 * 10 + (bytes[i] - '0');
+                            filesize_1 = filesize_1 * 10 + (new_bytes[i] - '0');
                         //Debug.Log("\n fid_rx = " + fid_rx + ", filesize = " + filesize);
                         count = 0;
-                        //Debug.Log("\n the first fid = " + fid_rx + ", fileSize = " + filesize_1);
+                        Debug.Log("\n the first fid = " + fid_rx + ", fileSize = " + filesize_1);
 
-                        string video_path = @"C:/Users/spauldsnl/Documents/decoding_videos/server_fetch/" + fid_rx.ToString() + ".mp4";
+                        string video_path = @"C:/Users/spauldsnl/Documents/decoding_videos/viking_texas/server_fetch/" + fid_rx.ToString() + ".mp4";
                         //Debug.Log("\n the desired video path = " + video_path);
-                        /*
                         if (File.Exists(video_path))
                         {
                             File.Delete(video_path);
                         }
-                        */
+
                         fs_1 = File.Create(video_path);
 
                         //for the second file
@@ -262,23 +274,22 @@ public class TCPTestClient : MonoBehaviour
                         filesize_2 = 0;
                         //Debug.Log("\n Second resolving the frame ids and getting the filesize \n");
                         for (int i = 14; i < 20; i++)
-                            fid_rx = fid_rx * 10 + (bytes[i] - '0');
+                            fid_rx = fid_rx * 10 + (new_bytes[i] - '0');
 
                         for (int i = 20; i < 26; i++)
-                            filesize_2 = filesize_2 * 10 + (bytes[i] - '0');
+                            filesize_2 = filesize_2 * 10 + (new_bytes[i] - '0');
                         //Debug.Log("\n fid_rx = " + fid_rx + ", filesize = " + filesize);
                         count = 0;
-                        //Debug.Log("\n the second fid = " + fid_rx + ", fileSize = " + filesize_2);
+                        Debug.Log("\n the second fid = " + fid_rx + ", fileSize = " + filesize_2);
                         if (filesize_2 > 0)
                         {
-                            video_path = @"C:/Users/spauldsnl/Documents/decoding_videos/server_fetch/" + fid_rx.ToString() + ".mp4";
+                            video_path = @"C:/Users/spauldsnl/Documents/decoding_videos/viking_texas/server_fetch/" + fid_rx.ToString() + ".mp4";
                             //Debug.Log("\n the desired video path = " + video_path);
-                            /*
                             if (File.Exists(video_path))
                             {
                                 File.Delete(video_path);
                             }
-                            */
+
                             fs_2 = File.Create(video_path);
                         }
                         //for the third file
@@ -286,113 +297,172 @@ public class TCPTestClient : MonoBehaviour
                         filesize_3 = 0;
                         //Debug.Log("\n Second resolving the frame ids and getting the filesize \n");
                         for (int i = 26; i < 32; i++)
-                            fid_rx = fid_rx * 10 + (bytes[i] - '0');
-
+                            fid_rx = fid_rx * 10 + (new_bytes[i] - '0');
+                        //Debug.Log("\n the third fid = " + fid_rx + ", fileSize = " + filesize_3);
                         for (int i = 32; i < 38; i++)
-                            filesize_3 = filesize_3 * 10 + (bytes[i] - '0');
+                            filesize_3 = filesize_3 * 10 + (new_bytes[i] - '0');
                         //Debug.Log("\n fid_rx = " + fid_rx + ", filesize = " + filesize);
                         count = 0;
-                        //Debug.Log("\n the third fid = " + fid_rx + ", fileSize = " + filesize_3);
+                        Debug.Log("\n the third fid = " + fid_rx + ", fileSize = " + filesize_3);
                         if (filesize_3 > 0)
                         {
-                            video_path = @"C:/Users/spauldsnl/Documents/decoding_videos/server_fetch/" + fid_rx.ToString() + ".mp4";
+                            video_path = @"C:/Users/spauldsnl/Documents/decoding_videos/viking_texas/server_fetch/" + fid_rx.ToString() + ".mp4";
                             //Debug.Log("\n the desired video path = " + video_path);
-                            /*
                             if (File.Exists(video_path))
                             {
                                 File.Delete(video_path);
                             }
-                            */
+
                             fs_3 = File.Create(video_path);
                         }
 
                         total_size = filesize_1 + filesize_2 + filesize_3;
-                        //Debug.Log("\n total size of those three video files = " + total_size);
+                        Debug.Log("\n total size of those three video files = " + total_size);
+                        if ((first_time == 1) && (length != START_LEN)) enter_first = 1;
+                        first_time = 0;
+                        count = 40;
+                        offset = 40;
+                        length -= 40;
 
                     }
-                    else
+                    //else
+                    if ((first_time != 1))// && (length != START_LEN))
                     {
-                        //Debug.Log("\n entering into file writing stage \n");
-                        if (count == 0) start_time = Time.realtimeSinceStartup;
-                        //Debug.Log("\n count = " + count + ", length = " + length + ", filesize_1 = " + filesize_1 + ", filesize_2 = " + filesize_2 + ", filesize_3 = " + filesize_3);
-
-                        if (count <= total_size)
+                        if (count < total_size + 40)
                         {
-                            if (count <= filesize_1)
+                            if (count < filesize_1 + 40)
                             {
                                 //Debug.Log("\n Inside first fs");
-                                if (count + length > filesize_1)
+                                if (count + length >= filesize_1 + 40)
                                 {
-                                    fs_1.Write(bytes, 0, filesize_1 - count);
-                                    offset = filesize_1 - count;
-                                    count = filesize_1;
+                                    //Debug.Log("\n 1st fid, Before writing here, current offset = " + offset + ", count = " + count);
+                                    fs_1.Write(bytes, offset, filesize_1 + 40 - count);
+                                    //Hou
+                                    offset += filesize_1 + 40 - count;
+                                    length -= filesize_1 + 40 - count;
+                                    count += filesize_1 + 40 - count;
                                     //Debug.Log("\n 1st Here offset is being changed \n");
-                                    //Debug.Log("\n 1st current length = " + length + ", offset = " + offset + ", count = " + count);
-                                    length = length - offset; //remaining length
-                                    //Debug.Log("\n 1st: the modified length is = " + length);
+                                    Debug.Log("\n 1st remaining current length = " + length + ", offset = " + offset + ", count = " + count);
+                                    //length = length - offset; //remaining length
+                                    Debug.Log("\n 1st: the modified length is = " + length);
+                                    fs_1.Flush();
+                                    fs_1.Close();
+
                                 }
                                 else
                                 {
-                                    fs_1.Write(bytes, 0, length);
-                                    offset = 0;
+
+                                    fs_1.Write(bytes, offset, length);
+                                    //Hou
+                                    offset += length;
                                     count += length;
+                                    length -= length;
+                                    Debug.Log("\n 1st: the current offset = " + offset + ", length = " + length + ", count = " + count);
+                                    fs_1.Flush();
                                 }
-                                fs_1.Flush();
+
+
 
                             }
-                            if ((count >= filesize_1) && (count <= (filesize_1 + filesize_2)) && (filesize_2 > 0))
+
+                            if ((count >= filesize_1 + 40) && (count < (filesize_1 + filesize_2) + 40) && (filesize_2 > 0))
                             {
-                                //Debug.Log("\n Inside 2nd fs");
-                                if (count + length > (filesize_1 + filesize_2))
+                                Debug.Log("\n Inside 2nd fs");
+                                if (count + length >= (filesize_1 + filesize_2))
                                 {
-                                    fs_2.Write(bytes, 0, (filesize_1 + filesize_2) - count);
-                                    offset = (filesize_2 + filesize_1) - count;
-                                    count = filesize_1 + filesize_2;
-                                    //Debug.Log("\n 2nd Here offset is being changed \n");
-                                    //Debug.Log("\n 2nd current length = " + length + ", offset = " + offset + ", count = " + count);
-                                    length = length - offset; //remaining length
-                                    //Debug.Log("\n 2nd: the modified length is = " + length);
+                                    Debug.Log("\n 2nd fid, Before writing here, current offset = " + offset + ", count = " + count + ",length = " + length);
+                                    //fs_2.Write(bytes, 0, (filesize_1 + filesize_2) - count);
+                                    Debug.Log("\n 2nd, amount of bytes want to be written = " + ((filesize_1 + filesize_2) - count));
+                                    fs_2.Write(bytes, offset, (filesize_1 + filesize_2) + 40 - count);
+                                    //Hou
+                                    offset += (filesize_1 + filesize_2) + 40 - count;
+                                    length -= (filesize_1 + filesize_2) + 40 - count;
+                                    count += (filesize_1 + filesize_2) + 40 - count;
+                                    Debug.Log("\n 2nd Here offset is being changed \n");
+                                    Debug.Log("\n 2nd current length = " + length + ", offset = " + offset + ", count = " + count);
+                                    //remaining length
+                                    Debug.Log("\n 2nd: the modified length is = " + length);
+                                    fs_2.Flush();
+                                    fs_2.Close();
+
+
+
+
                                 }
                                 else
                                 {
 
                                     fs_2.Write(bytes, offset, length);
+                                    offset += length;
                                     count += length;
-                                    //Debug.Log("\n 2nd: the current offset = " + offset + ", length = " + length + ", count = " + count);
-                                    offset = 0;
+                                    length -= length;
+                                    Debug.Log("\n 2nd: the current offset = " + offset + ", length = " + length + ", count = " + count);
+                                    //offset = 0;
+                                    //check_continuous = 1;
+                                    fs_2.Flush();
+
 
                                 }
-                                fs_2.Flush();
+
+
                             }
-                            if ((count >= (filesize_1 + filesize_2)) && (count <= total_size) && (filesize_3 > 0))
+                            if ((count >= (filesize_1 + filesize_2) + 40) && (count < total_size + 40) && (filesize_3 > 0))
                             {
-                                //Debug.Log("\n Inside 3rd fs");
+                                Debug.Log("\n Inside 3rd fs");
+                                Debug.Log("\n 3rd fid, Before writing here, current offset = " + offset + ", count = " + count);
+                                Debug.Log("\n 3rd, amount of bytes want to be written = " + ((filesize_1 + filesize_2) - count));
                                 fs_3.Write(bytes, offset, length);
                                 count += length;
-                                //Debug.Log("\n 3rd: the current offset = " + offset + ", length = " + length + ", count = " + count);
+                                Debug.Log("\n 3rd: the current offset = " + offset + ", length = " + length + ", count = " + count);
                                 offset = 0;
                                 fs_3.Flush();
+
+                                Debug.Log("current count = " + count + " total size = " + total_size + "\n");
                             }
 
+
                         }
-                        if (count >= total_size)
+                        Debug.Log("from outside, current count = " + count + " total size = " + total_size + "\n");
+                        //if (true)
+                        if (total_bytes_rx == total_size + 40)
+                        //if ((count == total_size)||(count - 40 == total_size))
                         {
-                            //Debug.Log("\n all three videos are received");
+                            Debug.Log("\n The total time taken = " + (Time.realtimeSinceStartup - prefetch_start) * 1000);
+                            //Debug.Log("\n Time taken for start of the receiving = " + (Time.realtimeSinceStartup - start_time1)*1000);
+                            //Debug.Log("\n complete time taken =  " + (Time.realtimeSinceStartup - cp.initial_time) * 1000);
+                            double bwc = (total_size * 8) / (((Time.realtimeSinceStartup - start_time1) * 1024) * 1024);
+                            Debug.Log("\n BW = " + bwc);
+                            Debug.Log("\n all three videos are received");
+                            count = 0;
+                            first_time = 1;
+                            total_bytes_rx = 0;
+                            inside_this = 0;
+                            if (filesize_3 > 0) fs_3.Close();
+                            /*fs_2.Close();
+                            fs_1.Close();
+                            */
+                            //socketConnection.Close();
+
                             break;
                         }
                     }
 
+
+
+
                 }
-                //Debug.Log("\n actual total time to get the entire data (in ms) = " + actual_total_time * 1000);
-                //double bw_consp = (total_size * 8) / (Time.realtimeSinceStartup - start_time);
-                //bw_consp /= 1000000;
-                //Debug.Log("\n BW consumption (Mbps) = " + bw_consp);
+                /*
+                Debug.Log("\n actual total time to get the entire data (in ms) = " + actual_total_time * 1000);
+                double bw_consp = (total_size * 8) / (Time.realtimeSinceStartup - start_time);
+                bw_consp /= 1000000;
+                Debug.Log("\n BW consumption (Mbps) = " + bw_consp);
+                */
                 //Debug.Log("\n the time to get the entire data = " + (Time.realtimeSinceStartup - start_time));
                 //fs.Close();
             }
             catch (SocketException socketException)
             {
-                //Debug.Log("\n Under Socket Exception");
+                Debug.Log("\n Under Socket Exception");
                 Debug.Log("Socket exception: " + socketException);
             }
         }
@@ -401,5 +471,3 @@ public class TCPTestClient : MonoBehaviour
     }
 
 }
-
-

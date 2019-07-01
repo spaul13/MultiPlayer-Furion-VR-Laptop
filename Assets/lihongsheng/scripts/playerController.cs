@@ -46,7 +46,7 @@ public class playerController : MonoBehaviour
 
     public int fID = 0;
     GstUnityBridgeTexture gubt;
-    int fID_max = 25921;
+    int fID_max = 16099;//25921;
     double x_max = -60f;
     double x_min = -65f;
     double z_max = 11f;
@@ -56,6 +56,8 @@ public class playerController : MonoBehaviour
     public int dir_change = 0;
 
     float step = 0.03125f;
+    public double prefetching_start;
+    int counter_now = 0;
 
     
 
@@ -110,17 +112,26 @@ public class playerController : MonoBehaviour
         
         if ((fID + direction < fID_max) && (fID + direction >= 0))
         {
-            gubt.Stop();
+            
             fID = fID + direction;
-            String m_URI = "file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/" + fID.ToString() + ".mp4"; //D:/decoding_videos/of_Ionly/"
-            //String m_URI = "file:///C:/Users/spauldsnl/Documents/decoding_videos/server_fetch/" + fID.ToString() + ".mp4";
-            gubt.Setup(m_URI, 0, 0);
-            gubt.Play();
+            //String m_URI = "file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas_Ionly/" + fID.ToString() + ".mp4"; //D:/decoding_videos/of_Ionly/"
+            String m_URI = "file:///C:/Users/spauldsnl/Documents/decoding_videos/viking_texas/server_fetch/" + fID.ToString() + ".mp4";
+            String m_String = @"C:/Users/spauldsnl/Documents/decoding_videos/viking_texas/server_fetch/" + fID.ToString() + ".mp4";
+            if (File.Exists(m_String))
+            {
+                Debug.Log("\n File exists");
+                gubt.Stop();
+                gubt.Setup(m_URI, 0, 0);
+                gubt.Play();
+                Debug.Log("\n The video file is changing");
+            }
+            prefetching_start = Time.realtimeSinceStartup;
             StartCoroutine(cpp.prefetch());
             pos_change = 1;
             dir_change = 1;
         }
-        yield return null;
+        //yield return null;
+        yield return new WaitForSeconds(0.1f);
 
     }
 
@@ -128,6 +139,17 @@ public class playerController : MonoBehaviour
     void Update()
     {
                 ts = this.transform.position;
+                 /*
+                if(counter_now % 10 == 0)
+                {
+                    StartCoroutine(Play_Video(1));
+                    Debug.Log("Moving Forward");
+                    animator.SetBool("Idling", false);
+                    ts.z += step;
+                    this.transform.position = ts;
+                }
+                counter_now += 1;
+                */
                 //Debug.Log("\n current position is= " + this.transform.position.x + "," + this.transform.position.y + "," + this.transform.position.z);
                 if (Input.GetKey(KeyCode.W))
                 {
@@ -147,7 +169,7 @@ public class playerController : MonoBehaviour
                     //if ((ts.x >= x_min) && (ts.x < x_max))
                     {
                         StartCoroutine(Play_Video(161));
-                        Debug.Log("Moving Right");
+                        //Debug.Log("Moving Right");
                         animator.SetBool("Idling", false);
                         ts.x += step;
                         this.transform.position = ts;
@@ -159,7 +181,7 @@ public class playerController : MonoBehaviour
                     //if ((ts.z > z_min) && (ts.z <= z_max))
                     {
                         StartCoroutine(Play_Video(-1));
-                        Debug.Log("Moving BackWard");
+                        //Debug.Log("Moving BackWard");
                         animator.SetBool("Idling", false);
                         ts.z -= step;
                         this.transform.position = ts;
@@ -172,7 +194,7 @@ public class playerController : MonoBehaviour
                     //if ((ts.x > x_min) && (ts.x <= x_max))
                     {
                         StartCoroutine(Play_Video(-161));
-                        Debug.Log("Moving Left");
+                        //Debug.Log("Moving Left");
                         animator.SetBool("Idling", false);
                         ts.x -= step;
                         this.transform.position = ts;
@@ -183,7 +205,7 @@ public class playerController : MonoBehaviour
                 {
                     animator.SetTrigger("Use");
                     animator.SetBool("Idling", false);
-                    Debug.Log("Shooting \n");
+                    //Debug.Log("Shooting \n");
                 }
 
                 else
@@ -200,7 +222,12 @@ public class playerController : MonoBehaviour
                     animator.SetTrigger("Use");
                 }
     }
- 
+
+    private void LateUpdate()
+    {
+        //StartCoroutine(gubt.display());
+        
+    }
 
     public void ScBeHitted()
     {
